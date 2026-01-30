@@ -2,10 +2,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/dropdownpopup.dart';
+import 'package:flutter_application_1/general_theme.dart';
 
 void main(List<String> args) {
-  runApp(MaterialApp(home: DropDownPopup(),));
+  runApp(MaterialApp(home: MyAppSelectColorWidget(),));
 }
 
 class MyApp2 extends StatelessWidget {

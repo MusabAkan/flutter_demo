@@ -32,7 +32,7 @@ class DropDwonButtonKullanimi extends StatefulWidget {
 final _sehirler = ['Ankara', 'Bursa', 'İstanbul', 'İzmir', 'Rize'];
 
 class _DropDwonButtonKullanimiState extends State<DropDwonButtonKullanimi> {
-  var _secilenSehir = null;
+  var _secilenSehir;
 
   @override
   Widget build(BuildContext context) {
