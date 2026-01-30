@@ -2,9 +2,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/resim_widgetlari.dart';
 
 void main(List<String> args) {
-  runApp(MyApp2());
+  runApp(MaterialApp(home: ResimWidgetlari(),));
 }
 
 class MyApp2 extends StatelessWidget {
