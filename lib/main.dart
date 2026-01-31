@@ -2,7 +2,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/general_theme.dart';
 import 'package:flutter_application_1/json_api_future_builder.dart';
 
 void main(List<String> args) {
