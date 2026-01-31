@@ -8,24 +8,56 @@ class TextFieldUsingBuilding extends StatefulWidget {
 }
 
 class _TextFieldUsingBuildingState extends State<TextFieldUsingBuilding> {
-  String deger = "";
+  int _maxLine = 1;
+  late TextEditingController _emailController;
+  late FocusNode _emailFocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailFocusNode = FocusNode();
+    _emailFocusNode.addListener(() {
+      setState(() {
+        _maxLine = _emailFocusNode.hasFocus ? 3 : 1;
+      });
+      
+    });
+
+    _emailController = TextEditingController(text: "ilk deger");
+    _emailController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          ElevatedButton(
+            onPressed: () {
+              _emailController.clear();
+            },
+            child: Text("Sıfırla"),
+          ),
+          SizedBox(height: 6),
           TextField(
+            focusNode: _emailFocusNode,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.search,
             maxLength: 50,
-            maxLines: 3,
+            maxLines: _maxLine,
             cursorColor: Colors.red,
             readOnly: false,
             onChanged: (value) {
-              setState(() {
-                deger = value;
-              });
+              _emailController.text = value;
             },
             decoration: InputDecoration(
               icon: Icon(Icons.remove_road),
@@ -44,7 +76,10 @@ class _TextFieldUsingBuildingState extends State<TextFieldUsingBuilding> {
             decoration: InputDecoration(border: OutlineInputBorder()),
           ),
           SizedBox(height: 8),
-          Text(deger, style: TextStyle(fontSize: 30, fontFamily: "RobotoSlab")),
+          Text(
+            _emailController.text,
+            style: TextStyle(fontSize: 30, fontFamily: "RobotoSlab"),
+          ),
         ],
       ),
     );
